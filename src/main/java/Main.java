@@ -4,14 +4,15 @@ import Models.Car;
 import Models.Color;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String args[]) {
         Car kia = new CarBuilder().with($ -> {
-            $.make = "Kia";
+            $.make = "KIA";
             $.model = "Sportage";
             $.color = Color.WHITE;
             $.registrationDate = LocalDateTime.now();
@@ -24,7 +25,7 @@ public class Main {
         }).createCar();
 
         Car fiat = new CarBuilder().with($ -> {
-            $.make = "Fiat";
+            $.make = "FIAT";
             $.model = "500";
             $.color = Color.WHITE;
             $.registrationDate = LocalDateTime.now();
