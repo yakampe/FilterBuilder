@@ -56,4 +56,15 @@ public class Car {
     public void setOwnersAddress(Address ownersAddress) {
         this.ownersAddress = ownersAddress;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", registrationDate=" + registrationDate +
+                ", color=" + color +
+                ", ownersAddress=" + ownersAddress +
+                '}';
+    }
 }
