@@ -47,6 +47,6 @@ public class FilterCarsTest {
 
     List<Car> carList = Arrays.asList(kia, fiat, mg);
 
-    
+
 
 }
