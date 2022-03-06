@@ -80,7 +80,7 @@ public class FilterCarsTest {
 
     @Test
     public void noFilterShouldReturnAllCars() {
-        assertEquals(carList.size(), FilterCars.filterCars(carList, null).size());
+        assertEquals(carList.size(), FilterCars.filterCars(carList, null, null, null).size());
     }
 
 
@@ -88,9 +88,24 @@ public class FilterCarsTest {
     public void kiaAndTeslafiltersShouldReturnOnlyKiaAndTeslaCars() {
         List<String> carFilters = Arrays.asList("KIA", "TESLA");
         int expected = carList.stream().filter(car -> car.getMake().equals("KIA") || car.getMake().equals("TESLA")).collect(Collectors.toList()).size();
-        int actual = FilterCars.filterCars(carList, carFilters).size();
+        int actual = FilterCars.filterCars(carList, carFilters, null, null).size();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sportageFiltersShouldReturnOnlySportage() {
+        List<String> modelFilters = Arrays.asList("Sportage", "ZS EV");
+        int expected = carList.stream().filter(car -> car.getModel().equals("Sportage") || car.getModel().equals("ZS EV")).collect(Collectors.toList()).size();
+        int actual = FilterCars.filterCars(carList, null, modelFilters, null).size();
         assertEquals(expected, actual);
     }
 
 
+    @Test
+    public void blackAndWhiteColorFiltersShouldReturnOnlyBlacnAndWhiteCars() {
+        List<Color> colorFilters = Arrays.asList(Color.WHITE, Color.BLACK);
+        int expected = carList.stream().filter(car -> car.getColor() == Color.WHITE || car.getColor() == Color.BLACK ).collect(Collectors.toList()).size();
+        int actual = FilterCars.filterCars(carList, null, null, colorFilters).size();
+        assertEquals(expected, actual);
+    }
 }
