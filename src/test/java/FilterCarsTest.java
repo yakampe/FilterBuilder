@@ -47,11 +47,6 @@ public class FilterCarsTest {
 
     List<Car> carList = Arrays.asList(kia, fiat, mg);
 
-    @Test
-    public void givenKiaFilterShouldReturnNoNonKiaItems() {
-        int countOfNonKiaItems = FilterCars.filterCars(carList, "KIA").stream().map(Car::getMake).filter(str -> !str.equals("KIA")).collect(Collectors.toList()).size();
-        assertEquals(0, countOfNonKiaItems);
-    }
-
+    
 
 }
