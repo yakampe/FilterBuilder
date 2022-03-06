@@ -1,3 +1,4 @@
+import Builders.AddressBuilder;
 import Builders.CarBuilder;
 import Models.Car;
 import Models.Color;
@@ -11,9 +12,14 @@ public class Main {
             $.model = "Sportage";
             $.color = Color.WHITE;
             $.registrationDate = LocalDateTime.now();
+        }).with($ -> {
+            $.ownersAddress = new AddressBuilder().with($_ownersAddress -> {
+                $_ownersAddress.city = "Chelmsford";
+                $_ownersAddress.country = "UK";
+                $_ownersAddress.firstLine = "123 Agent Street";
+            }).createAddress();
         }).createCar();
 
-        
 
         System.out.println(kia);
     }
