@@ -1,6 +1,5 @@
 import Models.Car;
 import Models.Color;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

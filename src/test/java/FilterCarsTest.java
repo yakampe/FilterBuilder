@@ -1,15 +1,12 @@
 import Builders.AddressBuilder;
 import Builders.CarBuilder;
 import Models.Car;
-import Models.CarFilter;
 import Models.Color;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
