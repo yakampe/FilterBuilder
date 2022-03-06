@@ -4,6 +4,9 @@ import Models.Car;
 import Models.Color;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String args[]) {
@@ -20,7 +23,31 @@ public class Main {
             }).createAddress();
         }).createCar();
 
+        Car fiat = new CarBuilder().with($ -> {
+            $.make = "Fiat";
+            $.model = "500";
+            $.color = Color.WHITE;
+            $.registrationDate = LocalDateTime.now();
+        }).with($ -> {
+            $.ownersAddress = new AddressBuilder().with($_ownersAddress -> {
+                $_ownersAddress.city = "Chelmsford";
+                $_ownersAddress.country = "UK";
+                $_ownersAddress.firstLine = "456 Liverpool Street";
+            }).createAddress();
+        }).createCar();
 
-        System.out.println(kia);
+        Car mg = new CarBuilder().with($ -> {
+            $.make = "MG";
+            $.model = "ZS EV";
+            $.color = Color.BLUE;
+            $.registrationDate = LocalDateTime.now();
+        }).createCar();
+
+        List<Car> carList = Arrays.asList(kia, fiat, mg);
+
+        carList.forEach(car -> {
+            System.out.println(car);
+        });
+
     }
 }
